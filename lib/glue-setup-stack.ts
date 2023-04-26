@@ -16,9 +16,7 @@ export class GlueSetupStack extends cdk.Stack {
       targets: {
         s3Targets: [{
           connectionName: 'connectionName',
-          dlqEventQueueArn: 'dlqEventQueueArn',
-          eventQueueArn: 'eventQueueArn',
-          path: 'path',
+          path: 's3://MyBucket/MyFolder/',
         }],
       },
       databaseName: 'output_database',
@@ -31,9 +29,16 @@ export class GlueSetupStack extends cdk.Stack {
       }
     });
 
+    const cfnDatabase = new glue.CfnDatabase(this, 'MyCfnDatabase', {
+      catalogId: 'catalogId',
+      databaseInput: {
+        name: 'output_database'
+      }
+    });
+
     const cfnTable = new glue.CfnTable(this, 'MyCfnTable', {
       catalogId: 'arn:aws:glue:region:account-id:catalog',
-      databaseName: 'databaseName',
+      databaseName: 'output_database',
       tableInput: {
         name: 'output_table',
         owner: 'owner',

@@ -42,7 +42,6 @@ export class GlueSetupStack extends cdk.Stack {
       tableInput: {
         name: 'output_table',
         owner: 'owner',
-        parameters: parameters,
         partitionKeys: [],
         storageDescriptor: {
           bucketColumns: ['bucketColumns'],

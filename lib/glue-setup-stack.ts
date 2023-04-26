@@ -58,11 +58,11 @@ export class GlueSetupStack extends cdk.Stack {
     });
 
     const cfnWorkflow = new glue.CfnWorkflow(this, 'MyCfnWorkflow', {
-      defaultRunProperties: defaultRunProperties,
+      //defaultRunProperties: defaultRunProperties,
       description: 'description',
       maxConcurrentRuns: 123,
       name: 'name',
-      tags: tags,
+      //tags: tags,
     });
 
   }

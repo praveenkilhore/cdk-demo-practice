@@ -15,7 +15,7 @@ export class CdkDemoPracticeStack extends cdk.Stack {
     });
 
     const deployment = new s3deploy.BucketDeployment(this, 'DeployFolder', {
-      sources: [s3deploy.Source.data('landing/dummy.txt','')],
+      sources: [s3deploy.Source.data('landing/.keep','')],
       destinationBucket: s3bucket
     });
 
